@@ -1,36 +1,40 @@
 ## Awesome JSGame Detona Ralph
 
-<p align="center">
-  <img src="https://github.com/digitalinnovationone/jsgame-detona-ralph/raw/main/assets/images/logo.png" alt="JSGame Detona Ralph Logo">
-</p>
+Jogo do **Detona Ralph** feito com HTML, CSS e JavaScript puro, como parte de um projeto educacional da Digital Innovation One.
 
-Bem-vindo ao **JSGame Detona Ralph**! Neste repositório, você encontrará um jogo divertido baseado no famoso filme "Detona Ralph". Este projeto não apenas oferece entretenimento, mas também demonstra várias técnicas avançadas de desenvolvimento de jogos em JavaScript.
+### Como jogar
 
-### Tecnologias Utilizadas
+1. Abra o arquivo `index.html` no navegador.
+2. Escolha a dificuldade (**Fácil**, **Normal** ou **Difícil**) e clique em **Jogar**.
+3. Clique no quadrado onde o Ralph aparecer para marcar pontos.
+4. Clicar em um quadrado errado custa uma vida (você começa com 3).
+5. O jogo termina quando o tempo ou as vidas acabam.
+6. Para pausar, use o botão **Pausar** ou a tecla **P**.
 
-- HTML5 e CSS3 para a estrutura e aparência do jogo.
-- JavaScript para a lógica de programação e interatividade.
-- Sprites e imagens customizadas para criar a estética única do universo de Detona Ralph.
+| Dificuldade | Tempo | Vidas | Velocidade inicial |
+| ----------- | ----- | ----- | ------------------ |
+| Fácil       | 60s   | 5     | mais lenta         |
+| Normal      | 60s   | 3     | original           |
+| Difícil     | 45s   | 2     | mais rápida        |
 
-### Funcionalidades Incríveis
+### Melhorias nesta versão
 
-- **Sistema de Pontuação**: Acompanhe sua pontuação à medida que progride no jogo e desafie seus amigos a superá-la, clique no quadrado que o Ralph se encontre
+- Tela de início e tela de **Game Over** com botão para jogar de novo (sem recarregar a página).
+- **Vidas funcionando**: errar o quadrado tira uma vida e o contador é atualizado.
+- **Três dificuldades**, cada uma com tempo, vidas e velocidade próprios (ajustáveis em `DIFFICULTIES`, no `engine.js`).
+- **Pausa** pelo botão ou pela tecla P; o jogo também pausa sozinho se você trocar de aba.
+- **Recorde** guardado no navegador (`localStorage`), um para cada dificuldade.
+- **Dificuldade progressiva**: o Ralph fica mais rápido a cada 5 pontos.
+- Ralph nunca aparece duas vezes seguidas no mesmo quadrado.
+- Feedback visual de acerto (amarelo) e erro (vermelho).
+- Funciona com mouse e toque, e o layout se adapta a telas pequenas.
+- O cronômetro mostra 60 desde o início; o jogo só começa quando você clica em Jogar.
 
-### Como Jogar
+### Tecnologias
 
-1. Clone este repositório para sua máquina local.
-2. Abra o arquivo `index.html` em seu navegador web.
-3. Use as setas direcionais para mover o personagem e a barra de espaço para interagir.
-4. Divirta-se explorando e coletando moedas, mas fique atento aos inimigos!
-
-### Contribuição
-
-Contribuições são bem-vindas! Se você deseja melhorar este jogo, adicionar novos recursos ou corrigir problemas, sinta-se à vontade para abrir um _pull request_.
+- HTML5 e CSS3 para a estrutura e a aparência.
+- JavaScript para a lógica e a interatividade.
 
 ### Créditos
 
-Este jogo foi desenvolvido como parte de um projeto educacional da Digital Innovation One.
-
----
-
-Divirta-se jogando o **JSGame Detona Ralph** enquanto explora as técnicas modernas de desenvolvimento de jogos em JavaScript. Lembre-se de conferir o repositório original [aqui](https://github.com/digitalinnovationone/jsgame-detona-ralph) e deixar uma ⭐️ se você gostou do projeto!
+Projeto original da [Digital Innovation One](https://github.com/digitalinnovationone/jsgame-detona-ralph).             Vinicius Cruz Dos Santos
