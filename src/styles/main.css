@@ -1,3 +1,7 @@
+:root {
+  --square-size: min(150px, 28vw);
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -17,6 +21,14 @@
   border-bottom: 5px solid #ffd700;
 }
 
+.menu h2 {
+  font-size: clamp(0.55rem, 2.4vw, 1.5rem);
+}
+
+.menu-label {
+  color: red;
+}
+
 .panel {
   margin-top: 1rem;
   display: flex;
@@ -25,15 +37,35 @@
 }
 
 .square {
-  height: 150px;
-  width: 150px;
+  height: var(--square-size);
+  width: var(--square-size);
   border: 1px solid #000000;
   background-color: #1aeaa5;
+  cursor: crosshair;
 }
 
 .enemy {
   background-image: url("../images/ralph.png");
   background-size: cover;
+}
+
+/* feedback de acerto e de erro */
+.square.hit {
+  animation: hit-flash 0.25s ease-out;
+}
+
+.square.miss {
+  animation: miss-flash 0.3s ease-out;
+}
+
+@keyframes hit-flash {
+  0% { background-color: #ffd700; }
+  100% { background-color: #1aeaa5; }
+}
+
+@keyframes miss-flash {
+  0% { background-color: #ff2a2a; }
+  100% { background-color: #1aeaa5; }
 }
 
 .menu-lives {
@@ -42,7 +74,126 @@
   justify-content: center;
 }
 
+.menu-lives img {
+  height: clamp(36px, 8vw, 60px);
+  width: auto;
+}
+
 .menu-time h2:nth-child(2),
-.menu-score h2:nth-child(2) {
+.menu-score h2:nth-child(2),
+.menu-best h2:nth-child(2) {
   margin-top: 1rem;
+}
+
+/* tela de início / game over */
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.overlay-box {
+  max-width: 480px;
+  width: 100%;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  color: #ffffff;
+  background-color: #000000;
+  border: 5px solid #ffd700;
+}
+
+.overlay-box h1 {
+  color: red;
+  font-size: clamp(1rem, 4vw, 1.6rem);
+  margin-bottom: 1.5rem;
+}
+
+.overlay-box p {
+  font-size: clamp(0.55rem, 2.2vw, 0.8rem);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.overlay-box button {
+  padding: 0.9rem 1.5rem;
+  font-size: 0.8rem;
+  color: #000000;
+  background-color: #ffd700;
+  border: none;
+  cursor: pointer;
+}
+
+.overlay-box button:hover,
+.overlay-box button:focus-visible {
+  background-color: #ffffff;
+  outline: none;
+}
+
+/* botão de pausa */
+#pause-button {
+  align-self: center;
+  margin-top: 1rem;
+  padding: 0.8rem 1.2rem;
+  font-size: clamp(0.55rem, 2.2vw, 0.8rem);
+  color: #ffffff;
+  background-color: #000000;
+  border: 3px solid #ffd700;
+  cursor: pointer;
+}
+
+#pause-button:hover:not(:disabled),
+#pause-button:focus-visible {
+  color: #000000;
+  background-color: #ffd700;
+  outline: none;
+}
+
+#pause-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* seletor de dificuldade */
+.difficulty.hidden {
+  display: none;
+}
+
+.difficulty-options {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.overlay-box .difficulty-btn {
+  padding: 0.7rem 0.9rem;
+  font-size: clamp(0.5rem, 2vw, 0.7rem);
+  color: #ffffff;
+  background-color: #000000;
+  border: 3px solid #555555;
+}
+
+.overlay-box .difficulty-btn[aria-pressed="true"] {
+  color: #000000;
+  background-color: #ffd700;
+  border-color: #ffd700;
+}
+
+.overlay-box .difficulty-btn:hover,
+.overlay-box .difficulty-btn:focus-visible {
+  border-color: #ffffff;
+}
+
+#difficulty-info {
+  color: #1aeaa5;
 }
